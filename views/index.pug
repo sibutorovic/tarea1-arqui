@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  label Number of requests to show
+  div(style={margin:'5px'})
+    form(method='get' action='/')
+      input(type="number" name="numberOfReq" style={'margin-right':'10px', width: '40px'} value=number_of_requests)
+      button(type='submit') Submit
+  h3 Showing last #{number_of_requests} requests
+  each req, index in reqs
+    p= index+1 + ") IP: " + req.ip + " - Timestamp: " + req.timestamp
+
