@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
   requests.push(request)
   var req_time = req._startTime
   res.render('index', {number_of_requests: number_of_requests, title: 'Express',
-    reqs: requests.slice(Math.max(0,requests.length - number_of_requests),requests.length)});
+    reqs: requests.slice(Math.max(0,requests.length - number_of_requests),requests.length).reverse()});
 });
 
 router.post('/', function(req, res, next) {
